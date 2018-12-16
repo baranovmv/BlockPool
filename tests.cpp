@@ -94,6 +94,7 @@ TEST(Pool, free)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+// Load test, checks absence race conditions.
 TEST(Pool, loadtest)
 {
     std::thread t1(loadtask, 1000, 3);
