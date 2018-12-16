@@ -17,7 +17,11 @@ public:
     public:
         uint8_t *data()
         {
-            return buf_;
+            if(occupied_){
+                return buf_;
+            } else {
+                return NULL;
+            }
         }
 
         void free()
@@ -74,6 +78,15 @@ public:
         for(size_t i = 0; i < LEN; ++i){
             storage_[i].allocator_ = this;
             storage_[i].occupied_ = false;
+            memset(storage_[i].buf_, 0, SIZE);
+        }
+    }
+     
+    void reset()
+    {
+        free_cntr_ = LEN;
+        for(size_t i = 0; i < LEN; ++i){
+            assert(!storage_[i].occupied_);
             memset(storage_[i].buf_, 0, SIZE);
         }
     }

@@ -1,7 +1,7 @@
 CXX =clang++
-CXXFLAGS += -std=gnu++11 -g
+CXXFLAGS += -std=gnu++11 -g 
 
-LDFLAGS += -lCppUTestExt -lCppUTest
+LDFLAGS += -lCppUTestExt -lCppUTest -lpthread
 
 CODE=main.cpp tests.cpp
 OBJECTS=$(patsubst %.cpp, %.o, $(patsubst %.cpp, %.o, $(CODE)))
